@@ -1,0 +1,222 @@
+/* .App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} */
+
+/*   color variables */
+$clr-primary: #f06292;
+$clr-primary-hover: #fce4ec;
+$clr-primary-dark: #ec407a;
+$clr-gray100: #f9fbff;
+$clr-gray150: #f4f6fb;
+$clr-gray200: #eef1f6;
+$clr-gray300: #e1e5ee;
+$clr-gray400: #767b91;
+$clr-gray500: #4f546c;
+$clr-gray600: #2a324b;
+$clr-gray700: #161d34;
+
+/*   border radius */
+$radius: 0.2rem;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.App {
+  // font-family: Montserrat, sans-serif;
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+}
+
+.footer {
+  background-color: gray;
+  height: 25px;
+}
+
+.main {
+  flex: auto;
+  background-color: #ccc;
+}
+
+.nav {
+  // position: fixed;
+  width: 100vw;
+  box-shadow: 0 0 10px $clr-gray300;
+  height: 75px;
+
+  &__list {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 2rem;
+    margin: 0 2rem;
+
+    &logo {
+      list-style: none;
+      margin-right: auto;
+      cursor: pointer;
+
+      svg {
+        width: 2.5rem;
+        transition: fill 250ms ease-in;
+
+        &:hover,
+        &:focus {
+          fill: $clr-primary;
+        }
+      }
+    }
+
+    &item {
+      list-style: none;
+      font-weight: bold;
+      position: relative;
+      padding: 1.5rem 1rem;
+      cursor: pointer;
+
+      &::after {
+        content: "";
+        width: 0;
+        height: 0.3rem;
+        border-radius: $radius;
+        position: absolute;
+        left: 1rem;
+        bottom: 0.8rem;
+        background-color: $clr-primary;
+        transition: width 200ms ease-in;
+      }
+
+      &:hover::after,
+      &:focus::after {
+        width: 80%;
+      }
+
+      &:hover ul,
+      &:focus ul {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      &drop {
+        position: absolute;
+
+        max-height: 50vh;
+        overflow: hidden;
+        overflow-y: scroll;
+
+        top: 4rem;
+        left: -4rem;
+        box-shadow: 0 0 10px $clr-gray300;
+        background-color: white;
+        border-radius: $radius;
+        width: 12rem;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 200ms ease-in-out;
+
+        li {
+          list-style: none;
+          padding: 0.5rem 1rem;
+          border-radius: $radius;
+          transition: background-color 200ms ease-in-out;
+
+          &:hover,
+          &:focus {
+            background-color: $clr-primary-hover;
+          }
+
+          &:hover ul,
+          &:focus ul {
+            opacity: 1;
+            visibility: visible;
+          }
+        }
+      }
+
+      &event {
+        position: absolute;
+
+        max-height: 50vh;
+        overflow: hidden;
+        overflow-y: scroll;
+
+        top: 10rem;
+        left: -16rem;
+        box-shadow: 0 0 10px $clr-gray300;
+        background-color: white;
+        border-radius: $radius;
+        width: 12rem;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 200ms ease-in-out;
+
+        li {
+          list-style: none;
+          padding: 0.5rem 1rem;
+          border-radius: $radius;
+          transition: background-color 200ms ease-in-out;
+
+          &:hover,
+          &:focus {
+            background-color: $clr-primary-hover;
+          }
+        }
+      }
+    }
+  }
+}
